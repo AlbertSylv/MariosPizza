@@ -7,7 +7,7 @@ public class MariosPizza {
         System.out.println("Hej");
         System.out.println("Hej med jer, virker det mon?");
         System.out.println("Det virker!!!hahaha!");
+        System.out.println("");
     }
     
 }
-a
