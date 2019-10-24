@@ -10,5 +10,6 @@ package mariospizza;
  * @author danie
  */
 public class MenuKort {
+    //TODO: Lav ting som henter pizzaer fra Pizzaer.csv således at de "kan læses på skærmen hele tiden"
     
 }
