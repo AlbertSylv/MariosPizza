@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MariosPizza {
+public class MariosPizza{
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner in = new Scanner(System.in);
