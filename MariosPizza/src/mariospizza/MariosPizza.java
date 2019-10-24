@@ -39,10 +39,10 @@ public class MariosPizza{
                 System.out.println("Du er nu i aktive bestillinger");
                 printArray(aktiveBestillinger);
                 System.out.println("Når en bestilling er betalt for - skriv bestillings id'et");
-                
+                //Lav metode der får en aktiv bestilling flyttet over i historien vha bestillingsID'et
             }
             if(s.equals("historie"))
-            {
+            { 
                 System.out.println("Du er nu i bestillingshistorien");
                 
                 
@@ -66,7 +66,8 @@ public class MariosPizza{
         for (int i = 0; i < a.size(); i++) {
             Bestilling cbdj = new Bestilling();
             cbdj = (Bestilling)a.get(i);
-            System.out.println("Pizzanr: " + cbdj.pizzaNr+ "\n" + "Telefon: " 
+            System.out.println("BestillingsID: " + cbdj.bestillingsID + "\n" + 
+                    "Pizzanr: " + cbdj.pizzaNr+ "\n" + "Telefon: " 
                     + cbdj.kundeTLF + "\n" + "Afhentningstid: " + cbdj.afhentningstid);
 
         }
