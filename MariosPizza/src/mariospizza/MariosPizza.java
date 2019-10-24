@@ -41,7 +41,10 @@ public class MariosPizza {
                 System.out.println("Når en bestilling er betalt for - skriv bestillings id'et");
                 
             }
-            if(s.equals("historie")){
+            if(s.equals("historie"))
+            {
+                System.out.println("Du er nu i bestillingshistorien");
+                
                 
             }
         
@@ -49,6 +52,7 @@ public class MariosPizza {
         }
         
     }
+    
     public static void kommandoer(){
         System.out.println("Tast: \n\"menu\" for at se menuen \n"
                 + "\"bestilling\" for at oprette en bestilling \n"
@@ -57,11 +61,13 @@ public class MariosPizza {
                 + "\""
                 + "\"exit\" for at afslutte programmet");
     }
+    
     public static void printArray(ArrayList a){
         for (int i = 0; i < a.size(); i++) {
             Bestilling cbdj = new Bestilling();
             cbdj = (Bestilling)a.get(i);
-            System.out.println(cbdj.pizzaNr+ "\n" + cbdj.kundeTLF + "\n" + cbdj.afhentningstid);
+            System.out.println("Pizzanr: " + cbdj.pizzaNr+ "\n" + "Telefon: " 
+                    + cbdj.kundeTLF + "\n" + "Afhentningstid: " + cbdj.afhentningstid);
 
         }
     }
@@ -79,7 +85,7 @@ public class MariosPizza {
             }
     }
     
-    public static void makeHTML(String line, String destinationFilename) throws IOException 
+    /*public static void makeHTML(String line, String destinationFilename) throws IOException 
     {
             // "Data/index.html"
             //2;Acura;RSX Type S 2dr;4;200;24;31;2778;101;1998;12000
@@ -97,7 +103,7 @@ public class MariosPizza {
             bw.write(outString);
             bw.newLine();
             bw.close();
-    } 
+    } */
 	
     
     
