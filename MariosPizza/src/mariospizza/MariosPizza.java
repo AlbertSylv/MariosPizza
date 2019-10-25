@@ -25,7 +25,7 @@ public class MariosPizza{
             {
                 System.out.println("Du er nu i menuen");
                 //print menuen
-                seMenu("C:\\Users\\Albert\\Documents\\NetBeansProjects\\MariosPizza\\MariosPizza\\src\\MariosPizza\\Pizzaer.csv");
+                seMenu("src/MariosPizza/Pizzaer.csv");
                 
             }
             if(s.equals("bestilling"))
@@ -67,7 +67,6 @@ public class MariosPizza{
                 + "\"bestilling\" for at oprette en bestilling \n"
                 + "\"aktive bestillinger\" for at se aktive bestillinger \n"
                 + "\"historie\" for at se gamle bestillinger og statistikker \n"
-                + "\""
                 + "\"exit\" for at afslutte programmet");
     }
     
@@ -89,11 +88,8 @@ public class MariosPizza{
             Bestilling cbd = new Bestilling();
             cbd = (Bestilling) c.get(i);
             
-        
         if(ID.equals(cbd.bestillingsID)){ 
             cbd.setAfhentet(true);
-            c.add(cbd);
-            
             
         }
         break;
@@ -103,7 +99,7 @@ public class MariosPizza{
     
     
     public static void seMenu(String filename) throws FileNotFoundException {
-            // bruge scanner
+            
             String line = "";
             
             File fh = new File(filename);
