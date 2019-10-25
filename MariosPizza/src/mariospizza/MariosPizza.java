@@ -20,6 +20,7 @@ public class MariosPizza{
         
         ArrayList aktiveBestillinger = new ArrayList();
         
+        
         while(!s.equals("exit"))
         {kommandoer();
             s = in.nextLine();
@@ -38,14 +39,21 @@ public class MariosPizza{
                 aktiveBestillinger.add(best);
             }
             if(s.equals("aktive bestillinger"))
-            {
+            {Scanner on = new Scanner(System.in);
+             String o = "";
                 System.out.println("Du er nu i aktive bestillinger");
                 printArray(aktiveBestillinger);
-                System.out.println("Når en bestilling er betalt for - skriv bestillings id'et");
-                
+                System.out.println("Skriv \"rediger\" hvis du vil redigere en bestilling");
+                //Lav metode der får en aktiv bestilling flyttet over i historien vha bestillingsID'et
+                o = in.nextLine();
+                if(o.equals("rediger")){
+                    System.out.println("Når en bestilling er betalt for - skriv bestillings id'et");
+                    o = in.nextLine();
+                editBestInList(o, aktiveBestillinger);
+                }
             }
             if(s.equals("historie"))
-            {
+            { 
                 System.out.println("Du er nu i bestillingshistorien");
                 
                 
@@ -55,6 +63,7 @@ public class MariosPizza{
         }
         
     }
+    
     
     public static void kommandoer(){
         System.out.println("Tast: \n\"menu\" for at se menuen \n"
@@ -69,11 +78,32 @@ public class MariosPizza{
         for (int i = 0; i < a.size(); i++) {
             Bestilling cbdj = new Bestilling();
             cbdj = (Bestilling)a.get(i);
-            System.out.println("Pizzanr: " + cbdj.pizzaNr+ "\n" + "Telefon: " 
-                    + cbdj.kundeTLF + "\n" + "Afhentningstid: " + cbdj.afhentningstid);
+            System.out.println("***************************");
+            System.out.println("BestillingsID: " + cbdj.bestillingsID + "\n" + 
+                    "Pizzanr: " + cbdj.pizzaNr+ "\n" + "Telefon: " 
+                    + cbdj.kundeTLF + "\n" + "Afhentningstid: " + cbdj.afhentningstid
+                    + "\n" + "afhentet?: " + cbdj.afhentet );
 
         }
     }
+    
+    public static void editBestInList(String ID, ArrayList c){
+        for (int i = 0; i < c.size(); i++) {
+            Bestilling cbd = new Bestilling();
+            cbd = (Bestilling) c.get(i);
+            
+        
+        if(ID.equals(cbd.bestillingsID)){ 
+            cbd.setAfhentet(true);
+            c.add(cbd);
+            
+            
+        }
+        break;
+        }
+    }
+    
+    
     
     public static void seMenu(String filename) throws FileNotFoundException {
             // bruge scanner
@@ -87,27 +117,4 @@ public class MariosPizza{
                     
             }
     }
-    
-    /*public static void makeHTML(String line, String destinationFilename) throws IOException 
-    {
-            // "Data/index.html"
-            //2;Acura;RSX Type S 2dr;4;200;24;31;2778;101;1998;12000
-            String outString = "";
-
-
-            File fh = new File(destinationFilename);
-            FileWriter fw = new FileWriter(fh,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            String[] myArr = line.split(",");
-            // fixe doors
-            outString += "<li>"+myArr[1]+"</li>";
-            outString += "<li>"+myArr[10]+"</li>";
-            outString += "<li>" + StringParserHelper.getNumOfDoors(myArr[2]) + "</li>";
-            bw.write(outString);
-            bw.newLine();
-            bw.close();
-    } */
-	
-    
-    
 }
