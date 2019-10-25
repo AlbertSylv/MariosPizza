@@ -13,16 +13,24 @@ public class Bestilling {
     String pizzaNr;
     String kundeTLF;
     String afhentningstid;
+    boolean afhentet = false;
 
     public Bestilling(String bestillingsID, String pizzaNr, String kundeTLF, String afhentningstid) {
         this.bestillingsID = bestillingsID;
         this.pizzaNr = pizzaNr;
         this.kundeTLF = kundeTLF;
         this.afhentningstid = afhentningstid;
+        
     }
     public Bestilling(){
         
     }
+
+    public void setAfhentet(boolean afhentet) {
+        this.afhentet = afhentet;
+    }
+    
+    
 
     public static Bestilling lavBestilling(){
         
@@ -48,5 +56,8 @@ public class Bestilling {
         
         return bestilling;
     }
+    
+    
+    
     
 }
