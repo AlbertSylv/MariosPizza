@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class MenuKort {
     //TODO: Lav ting som henter pizzaer fra Pizzaer.csv således at de "kan læses på skærmen hele tiden"
     public static void MenuKort(String [] args) throws FileNotFoundException{
-        String fileName = "C:\\Users\\danie\\OneDrive\\Dokumenter\\NetBeansProjects\\MariosPizza\\MariosPizza\\src\\mariospizza\\Pizzaer.csv";
+        String fileName = "src/MariosPizza/Pizzaer.csv";
     
         File pizzaFil = new File(fileName);
         
