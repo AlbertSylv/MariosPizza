@@ -13,7 +13,6 @@ import java.util.Scanner;
 
 public class MariosPizza{
     
-
     public static void main(String[] args) throws FileNotFoundException {
         Scanner in = new Scanner(System.in);
         String s = "";
