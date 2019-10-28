@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class MariosPizza{
     
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         Scanner in = new Scanner(System.in);
         String s = "";
         
@@ -28,7 +28,7 @@ public class MariosPizza{
             {
                 System.out.println("Du er nu i menuen");
                 //print menuen
-                seMenu("src/MariosPizza/Pizzaer.csv");
+                seMenu("Data/Pizzaer.csv");
                 
             }
             if(s.equals("bestilling"))
@@ -36,6 +36,7 @@ public class MariosPizza{
                 System.out.println("Du er nu i bestilling");
                 Bestilling best = new Bestilling();
                 best = Bestilling.lavBestilling();
+                best.writeBestToFile(best);
                 aktiveBestillinger.add(best);
             }
             if(s.equals("aktive bestillinger"))
