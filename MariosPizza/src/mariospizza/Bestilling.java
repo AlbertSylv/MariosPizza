@@ -1,5 +1,9 @@
 package mariospizza;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -28,6 +32,17 @@ public class Bestilling {
     public void setAfhentet(boolean afhentet) {
         this.afhentet = afhentet;
     }
+    public void writeBestToFile(Bestilling bestilling) throws IOException{
+        String fileName = "Data/BestillingsDoku.csv";
+        File fh = new File(fileName);
+        FileWriter fw = new FileWriter(fh, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        System.out.println(bestilling);
+        bw.write(bestilling.toString());
+        bw.newLine();
+        bw.close();
+
+    }
     
     
 
@@ -55,6 +70,12 @@ public class Bestilling {
         
         return bestilling;
     }
+
+    @Override
+    public String toString() {
+        return "Bestilling{" + "bestillingsID=" + bestillingsID + ", pizzaNr=" + pizzaNr + ", kundeTLF=" + kundeTLF + ", afhentningstid=" + afhentningstid + ", afhentet=" + afhentet + '}';
+    }
+    
     
     
     
