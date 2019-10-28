@@ -13,14 +13,14 @@ import java.util.Scanner;
  */
 public class Bestilling {
     String bestillingsID;
-    String pizzaNr;
+    Pizza pizza;
     String kundeTLF;
     String afhentningstid;
     boolean afhentet = false;
 
-    public Bestilling(String bestillingsID, String pizzaNr, String kundeTLF, String afhentningstid) {
+    public Bestilling(String bestillingsID, Pizza pizza, String kundeTLF, String afhentningstid) {
         this.bestillingsID = bestillingsID;
-        this.pizzaNr = pizzaNr;
+        this.pizza = pizza;
         this.kundeTLF = kundeTLF;
         this.afhentningstid = afhentningstid;
         
@@ -55,7 +55,7 @@ public class Bestilling {
         bestillingsID = bestil.nextLine();
         
         System.out.println("Indtast pizzanummer: ");
-        String pizzanummer = "";
+        Pizza pizzanummer = new Pizza(); //hvordan får vi fat i magaritaen her fra???til/fra main
         pizzanummer = bestil.nextLine();
         
         System.out.println("Indtast kundens telefon nummer");
@@ -73,7 +73,7 @@ public class Bestilling {
 
     @Override
     public String toString() {
-        return "Bestilling{" + "bestillingsID=" + bestillingsID + ", pizzaNr=" + pizzaNr + ", kundeTLF=" + kundeTLF + ", afhentningstid=" + afhentningstid + ", afhentet=" + afhentet + '}';
+        return "Bestilling{" + "bestillingsID=" + bestillingsID + ", pizzaNr=" + pizzanummer + ", kundeTLF=" + kundeTLF + ", afhentningstid=" + afhentningstid + ", afhentet=" + afhentet + '}';
     }
     
     
