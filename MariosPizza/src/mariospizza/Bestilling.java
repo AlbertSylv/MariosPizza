@@ -1,4 +1,3 @@
-
 package mariospizza;
 
 import java.util.Scanner;
