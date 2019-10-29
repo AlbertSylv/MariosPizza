@@ -12,7 +12,8 @@ import java.util.Scanner;
  *
  * @author Albert
  */
-public class Bestilling {
+public class Bestilling 
+{
     String bestillingsID;
     ArrayList<Pizza> antPizInBest; 
     String kundeTLF;
@@ -20,21 +21,25 @@ public class Bestilling {
     boolean afhentet = false;
     
 
-    public Bestilling(String bestillingsID, ArrayList<Pizza> p, String kundeTLF, String afhentningstid) {
+    public Bestilling(String bestillingsID, ArrayList<Pizza> p, String kundeTLF, String afhentningstid) 
+    {
         this.bestillingsID = bestillingsID;
         this.antPizInBest = p;
         this.kundeTLF = kundeTLF;
         this.afhentningstid = afhentningstid;
         
     }
-    public Bestilling(){
+    public Bestilling()
+    {
         
     }
 
-    public void setAfhentet(boolean afhentet) {
+    public void setAfhentet(boolean afhentet) 
+    {
         this.afhentet = afhentet;
     }
-    public void writeBestToFile(Bestilling bestilling) throws IOException{
+    public void writeBestToFile(Bestilling bestilling) throws IOException
+    {
         String fileName = "Data/BestillingsDoku.csv";
         File fh = new File(fileName);
         FileWriter fw = new FileWriter(fh, true);
@@ -48,7 +53,8 @@ public class Bestilling {
     
     
 
-    public static Bestilling lavBestilling(){
+    public static Bestilling lavBestilling()
+    {
         ArrayList<Pizza> antPizInBest = new ArrayList();
         
         Scanner bestil = new Scanner(System.in);
@@ -66,18 +72,17 @@ public class Bestilling {
         afht = bestil.nextLine();
         String jaNej="";
         //Hvorfor kun .equals()???
-        while(!jaNej.equals("nej")){
-            
-                
-                //if(jaNej=="ja"){
-                    System.out.println("Indtast pizzanummer: ");
+        while(!jaNej.equals("nej"))
+        {
+            System.out.println("Indtast pizzanummer: ");
             String pizzaNr = bestil.nextLine();
             Pizza TMPpizza = new Pizza(pizzaNr);
 
             System.out.println("Indtast antal af nr " + pizzaNr);
             int antal = 0;
             antal = bestil.nextInt();
-            for (int i = 0; i < antal; i++) {
+            for (int i = 0; i < antal; i++) 
+            {
             antPizInBest.add(TMPpizza);
             }
             //fanger enter fordi vi bruger nextInt oven over.
@@ -96,9 +101,11 @@ public class Bestilling {
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         String ordrelinie = "";
-        for (int i = 0; i < antPizInBest.size(); i++) {
+        for (int i = 0; i < antPizInBest.size(); i++) 
+        {
             ordrelinie += antPizInBest.get(i).pizzaNr;
             ordrelinie += ", ";
             
@@ -108,13 +115,6 @@ public class Bestilling {
         return bestillingsID + ", " + kundeTLF + ", " + afhentningstid + ", " +
                 afhentet + "\n" + ordrelinie;
     }
-
-    
-
-    
-    
-    
-    
-    
+  
     
 }
