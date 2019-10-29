@@ -85,7 +85,7 @@ public class Bestilling
             {
             antPizInBest.add(TMPpizza);
             }
-            //fanger enter fordi vi bruger nextInt oven over.
+            //fordi nextInt oven over fucker med os.
             bestil.nextLine();
                // }
             System.out.println("skal du have flere pizzaer? ja/nej");
@@ -106,14 +106,13 @@ public class Bestilling
         String ordrelinie = "";
         for (int i = 0; i < antPizInBest.size(); i++) 
         {
+            ordrelinie += "@";
             ordrelinie += antPizInBest.get(i).pizzaNr;
-            ordrelinie += ", ";
-            
             
             
         }
         return bestillingsID + ", " + kundeTLF + ", " + afhentningstid + ", " +
-                afhentet + "\n" + ordrelinie;
+                afhentet + ";" + ordrelinie;
     }
   
     
