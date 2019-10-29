@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,14 +14,15 @@ import java.util.Scanner;
  */
 public class Bestilling {
     String bestillingsID;
-    Pizza pizza;
+    ArrayList<Pizza> antPizInBest; 
     String kundeTLF;
     String afhentningstid;
     boolean afhentet = false;
+    
 
-    public Bestilling(String bestillingsID, Pizza pizza, String kundeTLF, String afhentningstid) {
+    public Bestilling(String bestillingsID, ArrayList<Pizza> p, String kundeTLF, String afhentningstid) {
         this.bestillingsID = bestillingsID;
-        this.pizza = pizza;
+        this.antPizInBest = p;
         this.kundeTLF = kundeTLF;
         this.afhentningstid = afhentningstid;
         
@@ -47,16 +49,13 @@ public class Bestilling {
     
 
     public static Bestilling lavBestilling(){
+        ArrayList<Pizza> antPizInBest = new ArrayList();
         
         Scanner bestil = new Scanner(System.in);
         
         System.out.println("Indtast et unikt bestillingsID for denne bestilling");
         String bestillingsID = "";
         bestillingsID = bestil.nextLine();
-        
-        System.out.println("Indtast pizzanummer: ");
-        Pizza pizzanummer = new Pizza(); //hvordan får vi fat i magaritaen her fra???til/fra main
-        pizzanummer = bestil.nextLine();
         
         System.out.println("Indtast kundens telefon nummer");
         String tlf = "";
@@ -65,16 +64,54 @@ public class Bestilling {
         System.out.println("Indtast afhentningstidspunkt");
         String afht = "";
         afht = bestil.nextLine();
+        String jaNej="";
+        //Hvorfor kun .equals()???
+        while(!jaNej.equals("nej")){
+            
+                
+                //if(jaNej=="ja"){
+                    System.out.println("Indtast pizzanummer: ");
+            String pizzaNr = bestil.nextLine();
+            Pizza TMPpizza = new Pizza(pizzaNr);
+
+            System.out.println("Indtast antal af nr " + pizzaNr);
+            int antal = 0;
+            antal = bestil.nextInt();
+            for (int i = 0; i < antal; i++) {
+            antPizInBest.add(TMPpizza);
+            }
+            //fanger enter fordi vi bruger nextInt oven over.
+            bestil.nextLine();
+               // }
+            System.out.println("skal du have flere pizzaer? ja/nej");
+                jaNej=bestil.nextLine();
+        }
+    
         
-        Bestilling bestilling = new Bestilling(bestillingsID, pizzanummer, tlf, afht); 
+       
+        
+        Bestilling bestilling = new Bestilling(bestillingsID, antPizInBest, tlf, afht); 
         
         return bestilling;
     }
 
     @Override
     public String toString() {
-        return "Bestilling{" + "bestillingsID=" + bestillingsID + ", pizzaNr=" + pizzanummer + ", kundeTLF=" + kundeTLF + ", afhentningstid=" + afhentningstid + ", afhentet=" + afhentet + '}';
+        String ordrelinie = "";
+        for (int i = 0; i < antPizInBest.size(); i++) {
+            ordrelinie += antPizInBest.get(i).pizzaNr;
+            ordrelinie += ", ";
+            
+            
+            
+        }
+        return bestillingsID + ", " + kundeTLF + ", " + afhentningstid + ", " +
+                afhentet + "\n" + ordrelinie;
     }
+
+    
+
+    
     
     
     
