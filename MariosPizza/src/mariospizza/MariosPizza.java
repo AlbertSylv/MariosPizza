@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * @author Albert
+ * @author Alle ZuSammen
  */
 
 public class MariosPizza{
@@ -42,17 +42,18 @@ public class MariosPizza{
                 Bestillinger.add(best);
             }
             if(s.equals("aktive bestillinger"))
-            {Scanner on = new Scanner(System.in);
-             String o = "";
-                System.out.println("Du er nu i aktive bestillinger");
-                printAktiveBest(convertFileToBest("Data/BestillingsDoku.csv"));
-                System.out.println("Skriv \"rediger\" hvis du vil redigere en bestilling");
-                //Lav metode der får en aktiv bestilling flyttet over i historien vha bestillingsID'et
-                o = in.nextLine();
-                if(o.equals("rediger")){
+            {   Scanner on = new Scanner(System.in);
+                    String o = "";
+                    System.out.println("Du er nu i aktive bestillinger");
+                    printAktiveBest(convertFileToBest("Data/BestillingsDoku.csv"));
+                    System.out.println("Skriv \"rediger\" hvis du vil redigere en bestilling");
+                    //Lav metode der får en aktiv bestilling flyttet over i historien vha bestillingsID'et
+                    o = in.nextLine();
+                    if(o.equals("rediger"))
+                {
                     System.out.println("Når en bestilling er betalt for - skriv bestillings id'et");
                     o = in.nextLine();
-                editBestInList(o, Bestillinger);
+                    editBestInList(o, Bestillinger);
                 }
             }
             if(s.equals("historie"))
@@ -134,14 +135,16 @@ public class MariosPizza{
                     {
                     tmpBestilling.afhentet = true;
                     }
+                    
                     else
                     {
                         tmpBestilling.afhentet = false;
                     }
-                    System.out.println(line);
-                    line = myScanner.nextLine();
-                    String[]splitLine = line.split(",");
-                    for (int i = 0; i < splitLine.length-1; i++) 
+                    
+                        System.out.println(line);
+                        line = myScanner.nextLine();
+                        String[]splitLine = line.split(",");
+                        for (int i = 0; i < splitLine.length-1; i++) 
                     {
                         Pizza p = new Pizza();
                         p.pizzaNr = splitLine[i];
@@ -153,7 +156,8 @@ public class MariosPizza{
         return alleBestillinger;
     } 
     
-    public static ArrayList<Pizza> convertFileToPizza(String filename) throws FileNotFoundException{
+    public static ArrayList<Pizza> convertFileToPizza(String filename) throws FileNotFoundException
+    {
         ArrayList<Pizza> allePizzaer = new ArrayList();
         String line = "";
         File fh = new File(filename);
@@ -172,16 +176,18 @@ public class MariosPizza{
                     allePizzaer.add(tmpPizza);
             }
         return allePizzaer;
-    } 
+    }
     
-    public static void editBestInList(String ID, ArrayList c){
-        for (int i = 0; i < c.size(); i++) {
+    public static void editBestInList(String ID, ArrayList c)
+    {
+        for (int i = 0; i < c.size(); i++) 
+        {
             Bestilling cbd = new Bestilling();
             cbd = (Bestilling) c.get(i);
-            
-        if(ID.equals(cbd.bestillingsID)){ 
-            cbd.setAfhentet(true);
-            
+
+            if(ID.equals(cbd.bestillingsID)){ 
+                cbd.setAfhentet(true);
+
         }
         break;
         }
@@ -189,13 +195,14 @@ public class MariosPizza{
     
     
     
-    public static void seMenu(String filename) throws FileNotFoundException {
+    public static void seMenu(String filename) throws FileNotFoundException 
+    {
             
-            String line = "";
+        String line = "";
             
-            File fh = new File(filename);
-            Scanner myScanner = new Scanner(fh);
-            while(myScanner.hasNextLine()) 
+        File fh = new File(filename);
+        Scanner myScanner = new Scanner(fh);
+        while(myScanner.hasNextLine()) 
             {
                     line = myScanner.nextLine();
                     System.out.println(line);
