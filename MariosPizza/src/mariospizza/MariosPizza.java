@@ -13,7 +13,8 @@ import java.util.Scanner;
 
 public class MariosPizza{
    
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws FileNotFoundException, IOException 
+    {
        
         Scanner in = new Scanner(System.in);
         String s = "";
@@ -79,8 +80,9 @@ public class MariosPizza{
         for (int i = 0; i < a.size(); i++) 
         {
             if(!a.get(i).afhentet)
-            {//mangler finesse
-                System.out.println(a.get(i).bestillingsID + a.get(i).kundeTLF + a.get(i).afhentningstid + a.get(i).afhentet);
+            {//mangler finesse(Umiddelbart fixet, tjekt!) :-*
+                System.out.println("BestillingsID: "+a.get(i).bestillingsID + "Kunde telefon: "+a.get(i).kundeTLF + 
+                        "Afhentningstidspunkt: "+a.get(i).afhentningstid + "Afhentnings status: "+a.get(i).afhentet);
                 System.out.println("Her er Pizzaen/pizzaerne");
                 for (int j = 0; j < a.get(i).antPizInBest.size(); j++) {
                     
@@ -89,8 +91,9 @@ public class MariosPizza{
                     for (int k = 0; k < PizzArr.size(); k++) 
                     {
                         if(PizzArr.get(k).pizzaNr.equals(a.get(i).antPizInBest.get(j).pizzaNr))
+                            
                         {
-                         System.out.println(PizzArr.get(k).navn);   
+                            System.out.println(PizzArr.get(k).navn);   
                         }
                         
                         
