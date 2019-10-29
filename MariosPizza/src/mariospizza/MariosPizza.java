@@ -82,8 +82,8 @@ public class MariosPizza{
         {
             if(!a.get(i).afhentet)
             {//mangler finesse(Umiddelbart fixet, tjekt!) :-*
-                System.out.println("BestillingsID: "+a.get(i).bestillingsID + "Kunde telefon: "+a.get(i).kundeTLF + 
-                        "Afhentningstidspunkt: "+a.get(i).afhentningstid + "Afhentnings status: "+a.get(i).afhentet);
+                System.out.println("BestillingsID: "+a.get(i).bestillingsID+"\n" + "Kunde telefon: "+a.get(i).kundeTLF+"\n" + 
+                        "Afhentningstidspunkt: "+a.get(i).afhentningstid+"\n" + "Afhentnings status: "+a.get(i).afhentet);
                 System.out.println("Her er Pizzaen/pizzaerne");
                 for (int j = 0; j < a.get(i).antPizInBest.size(); j++) {
                     
