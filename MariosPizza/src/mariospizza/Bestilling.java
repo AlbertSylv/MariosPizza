@@ -2,6 +2,7 @@ package mariospizza;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class Bestilling
     {
         this.afhentet = afhentet;
     }
+    //SKriver bestilling ind i "bestillingsDoku.csv"
     public void writeBestToFile(Bestilling bestilling) throws IOException
     {
         String fileName = "Data/BestillingsDoku.csv";
@@ -49,6 +51,36 @@ public class Bestilling
         bw.newLine();
         bw.close();
 
+    }
+    
+    //Burde sammen med metoden editBestInFile i mariosPizza klassen ændre false til true i "bestillingsdoku.csv"
+    public static void editBestInFile(Bestilling bestilling) throws IOException
+    {
+        StringBuffer SB = new StringBuffer();
+        String fileName = "Data/BestillingsDoku.csv";
+        File fh = new File(fileName);
+        FileWriter fw = new FileWriter(fh, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+        String line = "";
+        Scanner myScanner = new Scanner(fh);
+             
+            while(myScanner.hasNextLine()) 
+            {
+             line = myScanner.nextLine();
+             if(line.contains(bestilling.bestillingsID))
+             {
+                String[]splitLinje = line.split(";");
+                    String[]splitLine = splitLinje[0].split(",");
+                    String afhentning = splitLine[splitLine.length-1];
+                 StringBuffer lineReplaced = SB.replace(splitLine.length-6,splitLine.length-1, "true");
+                    bw.write(lineReplaced.toString());
+                    bw.newLine();
+                    bw.close();
+             }
+            
+            }
+        
     }
     
     
@@ -71,14 +103,14 @@ public class Bestilling
         String afht = "";
         afht = bestil.nextLine();
         String jaNej="";
-        //Hvorfor kun .equals()???
+        
         while(!jaNej.equals("nej"))
         {
             System.out.println("Indtast pizzanummer: ");
-            String pizzaNr = bestil.nextLine();
-            Pizza TMPpizza = new Pizza(pizzaNr);
+            String pizzaNumar = bestil.nextLine();
+            Pizza TMPpizza = new Pizza(pizzaNumar);
 
-            System.out.println("Indtast antal af nr " + pizzaNr);
+            System.out.println("Indtast antal af nr " + pizzaNumar);
             int antal = 0;
             antal = bestil.nextInt();
             for (int i = 0; i < antal; i++) 
@@ -93,7 +125,7 @@ public class Bestilling
         }
     
         
-       
+        //her sættes de indtastede oplysninger ind i den bestilling som metoden returner
         
         Bestilling bestilling = new Bestilling(bestillingsID, antPizInBest, tlf, afht); 
         
@@ -104,16 +136,14 @@ public class Bestilling
     public String toString() 
     {
         String ordrelinie = "";
-        for (int i = 0; i < antPizInBest.size(); i++) 
+        for (int i = 0; i <= antPizInBest.size()-1; i++) 
         {
             ordrelinie += "@";
-            ordrelinie += antPizInBest.get(i).pizzaNr;
-            
+            ordrelinie += antPizInBest.get(i).getPizzaNr();
             
         }
         return bestillingsID + ", " + kundeTLF + ", " + afhentningstid + ", " +
                 afhentet + ";" + ordrelinie;
     }
   
-    
 }
