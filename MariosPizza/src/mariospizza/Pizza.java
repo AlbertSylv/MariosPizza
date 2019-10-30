@@ -9,7 +9,8 @@ public class Pizza
     private String navn;
     private int pris;
     private String ingredienser;
-
+    
+    //constructore
     public Pizza(String pizzaNr, String navn, int pris, String ingredienser) {
         this.pizzaNr = pizzaNr;
         this.navn = navn;
@@ -27,7 +28,7 @@ public class Pizza
     public Pizza()
     {
     }
-
+    //gettere og settere
     public String getPizzaNr() {
         return pizzaNr;
     }
