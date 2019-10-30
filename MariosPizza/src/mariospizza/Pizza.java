@@ -5,35 +5,61 @@ package mariospizza;
  */
 public class Pizza 
 {
-    public String pizzaNr;
-    public String navn;
-    public int pris;
-    public String ingredienser;
+    private String pizzaNr;
+    private String navn;
+    private int pris;
+    private String ingredienser;
 
-    public Pizza(String navn, int pris)
-    {
-       // this.pizzaNr= pizzaNr;
+    public Pizza(String pizzaNr, String navn, int pris, String ingredienser) {
+        this.pizzaNr = pizzaNr;
         this.navn = navn;
         this.pris = pris;
+        this.ingredienser = ingredienser;
     }
+
+   
         public Pizza(String pizzaNr) 
         {
             this.pizzaNr= pizzaNr;
-            if(this.pizzaNr.equals("1"))
-            {
-                this.navn = "margarita";
-                this.pris = 40;
-            }
-            if(this.pizzaNr.equals("2"))
-                {
-                this.navn = "americano";
-                this.pris = 50;
-                }
+            
         }
 
     public Pizza()
     {
     }
+
+    public String getPizzaNr() {
+        return pizzaNr;
+    }
+
+    public void setPizzaNr(String pizzaNr) {
+        this.pizzaNr = pizzaNr;
+    }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public int getPris() {
+        return pris;
+    }
+
+    public void setPris(int pris) {
+        this.pris = pris;
+    }
+
+    public String getIngredienser() {
+        return ingredienser;
+    }
+
+    public void setIngredienser(String ingredienser) {
+        this.ingredienser = ingredienser;
+    }
+    
     
     
 }
