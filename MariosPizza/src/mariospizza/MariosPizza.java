@@ -11,6 +11,8 @@ import java.util.Scanner;
  * @author Alle ZuSammen
  */
 
+
+
 //vi har ikke kunne finde ud af at lave boolean afhentet false inde i et dokument om til true, så vi har ikke kunne lave en historie af bestillinger.
 //vi har ikke nået at lave statistik, hvilket også havde været svært at lave uden en historik.
 //når man trykker aktive bestillinger fårn 
